@@ -119,11 +119,25 @@ class Ano_ZFTwig_View_Engine_TwigEngine extends Ano_View_Engine_Abstract
      */
     public function render($template, $vars = null)
     {
-        $path = dirname($template);
-        $templateFile = basename($template);
+        $template = self::normalizePath($template);
+        foreach ($this->getEnvironment()->getLoader()->getPaths() as $possiblePath) {
+            $possiblePath = self::normalizePath($possiblePath);
+            if (strpos($template, $possiblePath) === 0) {
+                $templateFile = substr($template, strlen($possiblePath));
+            }
+        }
 
-        $this->getEnvironment()->getLoader()->addPath($path);
+
         $template = $this->getEnvironment()->loadTemplate($templateFile);
         $template->display($vars);
+    }
+
+    /**
+     * @param string $path
+     * @return string
+     */
+    public static function normalizePath($path)
+    {
+        return str_replace('\\', '/', $path);
     }
 }
