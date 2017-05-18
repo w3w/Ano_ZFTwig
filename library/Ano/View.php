@@ -118,25 +118,6 @@ class Ano_View extends Zend_View_Abstract
     }
 
     /**
-     * Processes a view script and returns the output.
-     * Hack for Zend_Layout => force the view suffix
-     * depending on template engine
-     *
-     * @param string $name The script name to process.
-     * @return string The script output.
-     */
-    public function render($name)
-    {
-        // hack for Zend_Layout which has its own view suffix handling
-        $filename = $name;
-        $suffix = $this->getTemplateEngine()->getViewSuffix();
-        $fileParts = pathinfo($name);
-        $filename = str_replace('.' . $fileParts['extension'], '.' . $suffix, $name);
-
-        return parent::render($filename);
-    }
-
-    /**
      * Tells to the default template engine to render the template
      * if one is set.
      * Include the file otherwise (default behaviour)
