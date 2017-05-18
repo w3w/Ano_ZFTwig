@@ -19,7 +19,7 @@
  * @author     Benjamin Dulau <benjamin.dulau@gmail.com>
  */
 
-require_once 'Ano/View/Engine/Abstract.php';
+// require_once 'Ano/View/Engine/Abstract.php';
 
 class Ano_View_Engine_PhpEngine extends Ano_View_Engine_Abstract
 {
@@ -53,7 +53,7 @@ class Ano_View_Engine_PhpEngine extends Ano_View_Engine_Abstract
         $this->_useViewStream = (bool) ini_get('short_open_tag') ? false : true;
         if ($this->_useViewStream) {
             if (!in_array('zend.view', stream_get_wrappers())) {
-                require_once 'Zend/View/Stream.php';
+                // require_once 'Zend/View/Stream.php';
                 stream_wrapper_register('zend.view', 'Zend_View_Stream');
             }
         }

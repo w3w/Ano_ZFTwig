@@ -99,7 +99,7 @@ class Ano_View extends Zend_View_Abstract
             return $this->_templateEngines[$defaultEngine];
         }
 
-        require_once 'Zend/View/Exception.php';
+        // require_once 'Zend/View/Exception.php';
         throw new Zend_View_Exception('No template engine were found');
     }
 

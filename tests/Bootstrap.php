@@ -50,9 +50,9 @@ set_include_path(implode(PATH_SEPARATOR, $path));
  * the default configuration.
  */
 if (is_readable($zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php')) {
-    require_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
+    // require_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
 } else {
-    require_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php.dist';
+    // require_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php.dist';
 }
 
 if (defined('TESTS_GENERATE_REPORT') && TESTS_GENERATE_REPORT === true &&
